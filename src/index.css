@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend+Giga:wght@100..900&family=Manrope:wght@200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f9fd;
+  padding: 20px 40px;
+}
+
+header h1.title {
+  font-size: 40px;
+  font-family: "Lexend Giga", sans-serif;
+  color: rgb(47, 58, 178);
+}
+
+div.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 30px;
+  padding: 13px;
+  margin-top: 30px;
+  box-shadow: 0px 4px 18px 0px rgba(100, 100, 100, 0.81);
+}
+
+div.search-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+div.search-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  color: rgb(47, 58, 178);
+}
+
+div.search-input input::placeholder {
+  color: rgb(47, 58, 178);
+}
+
+div.search-input .icon {
+  font-size: 20px;
+  color: rgb(47, 58, 178);
+}
+
+div.search-button button {
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  color: rgb(47, 58, 178);
+  font-weight: 900;
+  background-color: #fdd32f;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+div.search-button button:hover {
+  background-color: rgb(47, 58, 178);
+  color: white;
+}
+
+div.filter-bar{
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select{
+  padding: 5px;
+  font-weight: 900;
+  width: 250px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+select option{
+  padding-top: 100px;
+  font-weight: 900;
+  height: 500px;
+  cursor: pointer;
+}
+
+div.filter2 button{
+  outline: none;
+  padding: 10px;
+  display: flex;  gap: 5px;
+  align-items: center;
+  font-weight: 900;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border: 1px solid #c1b6b6;
+  transition: .2s ease-in-out;
+
+}
+
+div.filter2 button:hover{
+  background-color: #ecebeb;
+}
+
+@media screen and (max-width:600px) {
+  body{
+    padding: 20px 20px;
+  }
+  div.search-bar {
+    display: block;
+    height: 70px;
+    margin-bottom: 80px;
+  }
+  div.search-button button{
+    margin-top: 40px;
+    width: 100%;
+  }
+}
