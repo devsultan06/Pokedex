@@ -119,7 +119,7 @@ div.characters {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 div.character {
@@ -137,6 +137,39 @@ div.character {
   right: 50%;
   width: 150px;
   transform: translate(-50%, -50%);
+}
+
+div.limit-input label {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+div.limit-input input {
+  margin-bottom: 10px;
+
+  outline: none;
+
+  padding: 10px;
+  font-size: 17px;
+  color: rgb(47, 58, 178);
+}
+
+div.limit-input button {
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  color: rgb(47, 58, 178);
+  font-weight: 900;
+  background-color: #fdd32f;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+div.limit-input button:hover {
+  background-color: rgb(47, 58, 178);
+  color: white;
 }
 
 .name {
@@ -219,6 +252,7 @@ button.button1 .icon {
   div.characters {
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
+    margin-top: -10px;
   }
 
   div.search-button button {
