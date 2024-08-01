@@ -49,18 +49,7 @@ function App() {
       newFilteredPokemonData = pokemonData.filter((pokeData) =>
         pokeData.name.toLowerCase().includes(lowercasedQuery)
       );
-    } else if (searchType === "id") {
-      const idQuery = parseInt(lowercasedQuery, 10);
-      newFilteredPokemonData = pokemonData.filter(
-        (pokeData) => pokeData.id === idQuery
-      );
-    } else if (searchType === "type") {
-      newFilteredPokemonData = pokemonData.filter((pokeData) =>
-        pokeData.types.some((type) =>
-          type.type.name.toLowerCase().includes(lowercasedQuery)
-        )
-      );
-    }
+    } 
 
     setFilteredPokemonData(newFilteredPokemonData);
   };
