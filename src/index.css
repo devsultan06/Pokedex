@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend+Giga:wght@100..900&family=Manrope:wght@200..800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend+Giga:wght@100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@
 body {
   background-color: #f6f9fd;
   padding: 20px 40px;
+  font-family: "Roboto", sans-serif;
 }
 
 header h1.title {
@@ -70,14 +73,14 @@ div.search-button button:hover {
   color: white;
 }
 
-div.filter-bar{
+div.filter-bar {
   display: flex;
   margin-top: 30px;
   justify-content: space-between;
   align-items: center;
 }
 
-select{
+select {
   padding: 5px;
   font-weight: 900;
   width: 250px;
@@ -86,17 +89,18 @@ select{
   border-radius: 5px;
 }
 
-select option{
+select option {
   padding-top: 100px;
   font-weight: 900;
   height: 500px;
   cursor: pointer;
 }
 
-div.filter2 button{
+div.filter2 button {
   outline: none;
   padding: 10px;
-  display: flex;  gap: 5px;
+  display: flex;
+  gap: 5px;
   align-items: center;
   font-weight: 900;
   border-radius: 25px;
@@ -104,16 +108,106 @@ div.filter2 button{
   background-color: white;
   border: none;
   border: 1px solid #c1b6b6;
-  transition: .2s ease-in-out;
-
+  transition: 0.2s ease-in-out;
 }
 
-div.filter2 button:hover{
+div.filter2 button:hover {
   background-color: #ecebeb;
 }
 
-@media screen and (max-width:600px) {
-  body{
+div.characters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 30px;
+}
+
+div.character {
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  margin-top: 120px;
+}
+
+.character img.pokemon-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.name {
+  margin-top: 100px;
+  color: rgb(246, 234, 234);
+  letter-spacing: 3px;
+  filter: brightness(1.1);
+}
+
+.number {
+  color: rgb(246, 234, 234);
+  margin-top: 10px;
+  filter: brightness(1);
+}
+
+.button {
+  display: flex;
+  gap: 9px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+button.button1,
+button.button2 {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button1 span::first-letter,
+.button2 span::first-letter {
+  text-transform: uppercase;
+}
+button.button1 .icon {
+  color: black;
+  font-size: 22px;
+}
+
+.name::first-letter {
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1100px) {
+  div.characters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  div.characters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
     padding: 20px 20px;
   }
   div.search-bar {
@@ -121,7 +215,13 @@ div.filter2 button:hover{
     height: 60px;
     margin-bottom: 90px;
   }
-  div.search-button button{
+
+  div.characters {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+
+  div.search-button button {
     margin-top: 40px;
     width: 100%;
   }
