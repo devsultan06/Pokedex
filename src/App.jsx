@@ -209,6 +209,9 @@ function App() {
             onChange={handleSearchChange}
           />
         </div>
+        <div className="search-button">
+          <button className="search">Search</button>
+        </div>
       </div>
 
       <div className="filter-bar">
