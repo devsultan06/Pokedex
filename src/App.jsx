@@ -70,37 +70,42 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+  
+useEffect(() => {
+  const fetchPokemon = async () => {
+    try {
+      // Fetch the list of Pokémon
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-  useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
-      .then((response) => {
+      const allPokemon = await response.json();
+      setPokemon(allPokemon.results);
+
+      // Fetch each Pokémon's data
+      const pokemonDataPromises = allPokemon.results.map(async (pokemon) => {
+        const response = await fetch(pokemon.url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
-        } else {
-          return response.json();
         }
-      })
-      .then((allPokemon) => {
-        setPokemon(allPokemon.results);
-        const pokemonDataPromises = allPokemon.results.map((pokemon) => {
-          return fetch(pokemon.url).then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            } else {
-              return response.json();
-            }
-          });
-        });
-        Promise.all(pokemonDataPromises).then((pokemonData) => {
-          setPokemonData(pokemonData);
-          // Update filteredPokemonData after fetching new data
-          setFilteredPokemonData(pokemonData);
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
+        return response.json();
       });
-  }, [limit]);
+
+      // Wait for all promises to resolve
+      const pokemonData = await Promise.all(pokemonDataPromises);
+      setPokemonData(pokemonData);
+
+      // Update filteredPokemonData after fetching new data
+      setFilteredPokemonData(pokemonData);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  fetchPokemon();
+}, [limit]);
+
 
   // Sort filteredPokemonData based on selectedValue
   const sortedPokemonData = [...filteredPokemonData];
